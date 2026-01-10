@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: Hookah-Order-System
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hos_db
+    username: postgres
+    password: 130997
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8081
