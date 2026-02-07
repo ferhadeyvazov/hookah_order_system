@@ -1,6 +1,5 @@
-package hos.hookahordersystem.brand.entity;
+package hos.hookahordersystem.tobacco_brand.entity;
 
-import hos.hookahordersystem.product.entity.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,20 +9,20 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name="brands")
+@Table(name="tobacco_brand")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Brand {
+public class TobaccoBrand {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String tobaccoBrand;
     private String imageUrl;
     private Double price;
 
-    @OneToMany(mappedBy = "brand")
+    @OneToMany(mappedBy = "tobaccoBrand")
     List<Product> products;
 
 }

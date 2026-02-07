@@ -6,7 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
+@Table(name="hookah_device")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,16 +17,9 @@ import lombok.Setter;
 public class HookahDevice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name="device_name")
+    private int id;
     private String deviceName;
 
-    private String model;
-
-    @Column(name="model_count")
-    private Integer modelCount;
-
-    @Column(name = "model_image_url")
-    private String deviceImageUrl;
+    @OneToMany(mappedBy = "hookahDevice")
+    private List<HookahModel> models;
 }

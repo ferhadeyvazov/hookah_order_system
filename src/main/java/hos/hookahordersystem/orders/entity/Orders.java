@@ -1,7 +1,8 @@
-package hos.hookahordersystem.order.entity;
+package hos.hookahordersystem.orders.entity;
 
-import hos.hookahordersystem.hookah_device.entity.HookahDevice;
-import hos.hookahordersystem.product.entity.Product;
+import hos.hookahordersystem.hookah_device.entity.HookahModel;
+import hos.hookahordersystem.tables.entity.Tables;
+import hos.hookahordersystem.tobacco_brand.entity.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +18,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,10 +31,15 @@ public class Order {
     )
     private List<Product> products;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="device_id", nullable=false)
-    private HookahDevice device;
+    @ManyToOne
+    @JoinColumn(name="table_id", nullable = false)
+    private Tables table;
 
-    private LocalDateTime orderDate;
+    @ManyToOne
+    @JoinColumn(name="hookah_model_id", nullable=false)
+    private HookahModel hookahModel;
+
+    private byte tobaccoCount;
     private BigDecimal totalPrice;
+    private LocalDateTime orderDate;
 }
