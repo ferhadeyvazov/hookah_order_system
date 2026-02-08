@@ -1,5 +1,6 @@
 package hos.hookahordersystem.orders.entity;
 
+import hos.hookahordersystem.enums.OrderStatus;
 import hos.hookahordersystem.hookah_device.entity.HookahModel;
 import hos.hookahordersystem.tables.entity.Tables;
 import hos.hookahordersystem.tobacco_brand.entity.Product;
@@ -41,5 +42,6 @@ public class Orders {
 
     private byte tobaccoCount;
     private BigDecimal totalPrice;
+    private OrderStatus orderStatus;
     private LocalDateTime orderDate;
 }
