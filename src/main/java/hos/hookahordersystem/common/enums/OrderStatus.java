@@ -1,4 +1,4 @@
-package hos.hookahordersystem.enums;
+package hos.hookahordersystem.common.enums;
 
 public enum OrderStatus {
     ALINDI("Sifariş Alındı"),

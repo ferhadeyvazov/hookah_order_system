@@ -1,9 +1,9 @@
 package hos.hookahordersystem.orders.entity;
 
-import hos.hookahordersystem.enums.OrderStatus;
+import hos.hookahordersystem.common.enums.OrderStatus;
 import hos.hookahordersystem.hookah_device.entity.HookahModel;
 import hos.hookahordersystem.tables.entity.Tables;
-import hos.hookahordersystem.tobacco_brand.entity.Product;
+import hos.hookahordersystem.tobacco_brand.entity.Tobacco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,18 +26,18 @@ public class Orders {
 
     @ManyToMany
     @JoinTable(
-            name = "order_products",
+            name = "order_tobacco",
             joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
+            inverseJoinColumns = @JoinColumn(name = "tobacco_id")
     )
-    private List<Product> products;
+    private List<Tobacco> tobaccos;
 
     @ManyToOne
-    @JoinColumn(name="table_id", nullable = false)
+    @JoinColumn(name = "table_id", nullable = false)
     private Tables table;
 
     @ManyToOne
-    @JoinColumn(name="hookah_model_id", nullable=false)
+    @JoinColumn(name = "hookah_model_id", nullable = false)
     private HookahModel hookahModel;
 
     private byte tobaccoCount;
